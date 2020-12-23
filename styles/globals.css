@@ -16,7 +16,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--body-color);
   padding: 4rem 2rem;
-  max-width: 1000px;
+  max-width: 1100px;
   font-family: 18px;
   margin: 0 auto;
 }
