@@ -47,6 +47,7 @@ hr {
   margin-bottom: 4rem;
   max-width: 40px;
   display: block;
+  cursor: pointer;
 }
 
 .list-post {

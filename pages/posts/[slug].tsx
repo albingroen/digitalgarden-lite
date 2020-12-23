@@ -4,6 +4,7 @@ import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
 import Head from "next/head";
 import Link from "next/link";
+import Logo from "../../components/Logo/Logo";
 
 const components = {};
 
@@ -17,11 +18,7 @@ export default function Posts({ source, frontMatter }) {
         <title>{frontMatter.title}</title>
       </Head>
 
-      <img
-        src="https://res.cloudinary.com/albin-groen/image/upload/f_auto,q_auto,w_100/v1602935502/logo_uws10e.svg"
-        alt="Albin Groen logo"
-        id="logo"
-      />
+      <Logo />
 
       <Link href="/">Back to all posts</Link>
 

@@ -1,5 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
+import React from "react";
+import Logo from "../components/Logo/Logo";
 import { getSortedPosts } from "../lib/posts";
 
 export default function Home({ posts, description, title }) {
@@ -12,17 +14,13 @@ export default function Home({ posts, description, title }) {
         <meta charSet="utf-8" />
       </Head>
 
-      <img
-        src="https://res.cloudinary.com/albin-groen/image/upload/f_auto,q_auto,w_100/v1602935502/logo_uws10e.svg"
-        alt="Albin Groen logo"
-        id="logo"
-      />
+      <Logo />
 
       <h1>{title}</h1>
 
       <p>{description}</p>
 
-      <hr/>
+      <hr />
 
       {posts.map((post) => (
         <Link as={`/posts/${post.slug}`} href="/posts/[slug]" key={post.slug}>
