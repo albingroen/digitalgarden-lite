@@ -1,7 +1,7 @@
 :root {
   --link-color: #4786FF;
   --body-color: #333333;
-  --text-color: black;
+  --text-color: rgb(0, 0, 0, 0.8);
 }
 
 * {
@@ -16,7 +16,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--body-color);
   padding: 4rem 2rem;
-  max-width: 1100px;
+  max-width: 1000px;
   font-family: 18px;
   margin: 0 auto;
 }
