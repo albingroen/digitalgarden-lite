@@ -17,6 +17,12 @@ export default function Posts({ source, frontMatter }) {
         <title>{frontMatter.title}</title>
       </Head>
 
+      <img
+        src="https://res.cloudinary.com/albin-groen/image/upload/f_auto,q_auto,w_100/v1602935502/logo_uws10e.svg"
+        alt="Albin Groen logo"
+        id="logo"
+      />
+
       <Link href="/">Back to all posts</Link>
 
       <header>

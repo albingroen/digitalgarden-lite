@@ -43,6 +43,12 @@ hr {
   margin: 3rem 0;
 }
 
+#logo {
+  margin-bottom: 4rem;
+  max-width: 40px;
+  display: block;
+}
+
 .list-post {
   transition: 0.2s ease-in-out 0s;
   border: 1px solid #eee;
