@@ -12,13 +12,20 @@ export default function Home({ posts, description, title }) {
         <meta charSet="utf-8" />
       </Head>
 
-      <h1>All posts</h1>
+      <h1>{title}</h1>
 
-        {posts.map((post) => (
-          <Link as={`/posts/${post.slug}`} href="/posts/[slug]" key={post.slug}>
-            {post.title}
-          </Link>
-        ))}
+      <p>{description}</p>
+
+      <hr/>
+
+      {posts.map((post) => (
+        <Link as={`/posts/${post.slug}`} href="/posts/[slug]" key={post.slug}>
+          <div className="list-post">
+            <h2>{post.title}</h2>
+            <p>{post.excerpt}</p>
+          </div>
+        </Link>
+      ))}
     </>
   );
 }

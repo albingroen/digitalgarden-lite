@@ -13,7 +13,13 @@ export default function Posts({ source, frontMatter }) {
     <div className="post">
       <Link href="/">Back to all posts</Link>
 
-      <h1>{frontMatter.title}</h1>
+      <header>
+        <h1>{frontMatter.title}</h1>
+        <p>{frontMatter.excerpt}</p>
+      </header>
+
+      <hr/>
+
       <div className="content">{content}</div>
     </div>
   );
