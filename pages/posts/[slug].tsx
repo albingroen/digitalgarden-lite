@@ -2,6 +2,7 @@ import matter from "gray-matter";
 import { getAllPostSlugs, getPostdata } from "../../lib/posts";
 import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
+import Head from "next/head";
 import Link from "next/link";
 
 const components = {};
@@ -11,6 +12,11 @@ export default function Posts({ source, frontMatter }) {
 
   return (
     <div className="post">
+      <Head>
+        <meta name="Description" content={frontMatter.excerpt}></meta>
+        <title>{frontMatter.title}</title>
+      </Head>
+
       <Link href="/">Back to all posts</Link>
 
       <header>
@@ -18,7 +24,7 @@ export default function Posts({ source, frontMatter }) {
         <p>{frontMatter.excerpt}</p>
       </header>
 
-      <hr/>
+      <hr />
 
       <div className="content">{content}</div>
     </div>
