@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Link from "next/link";
-import React from "react";
 import Logo from "../components/Logo/Logo";
 import { getSortedPosts } from "../lib/posts";
 

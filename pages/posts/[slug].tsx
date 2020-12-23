@@ -1,10 +1,10 @@
 import matter from "gray-matter";
-import { getAllPostSlugs, getPostdata } from "../../lib/posts";
-import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
+import renderToString from "next-mdx-remote/render-to-string";
 import Head from "next/head";
 import Link from "next/link";
 import Logo from "../../components/Logo/Logo";
+import { getAllPostSlugs, getPostdata } from "../../lib/posts";
 
 const components = {};
 
