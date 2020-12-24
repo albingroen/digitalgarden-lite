@@ -80,6 +80,10 @@ hr {
   opacity: 0.5;
 }
 
+.post {
+  padding-bottom: 5rem;
+}
+
 .post header {
   text-align: center;
 }
