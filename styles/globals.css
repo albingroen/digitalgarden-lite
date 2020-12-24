@@ -23,6 +23,7 @@ body {
 
 ul, li {
   list-style-position: inside;
+  margin: 1rem 0;
 }
 
 h2,
@@ -92,10 +93,6 @@ hr {
   color: var(--text-color);
   line-height: 32px;
   font-size: 18px;
-}
-
-.post .content li {
-  margin-bottom: 1rem;
 }
 
 .post .content img {
