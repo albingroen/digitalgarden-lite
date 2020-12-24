@@ -99,7 +99,7 @@ hr {
 }
 
 .post .content img {
-  border-radius: 1rem;
+  border-radius: 18px;
   max-width: 100%;
   margin: 2rem 0;
 }
