@@ -21,14 +21,18 @@ export default function Home({ posts, description, title }) {
 
       <hr />
 
-      {posts.map((post) => (
-        <Link as={`/posts/${post.slug}`} href="/posts/[slug]" key={post.slug}>
-          <div className="list-post">
-            <h2>{post.title}</h2>
-            <p>{post.excerpt}</p>
-          </div>
-        </Link>
-      ))}
+      {posts.map((post) => {
+        console.log({ post });
+        return (
+          <Link as={`/posts/${post.slug}`} href="/posts/[slug]" key={post.slug}>
+            <div className="list-post">
+              <h2>{post.title}</h2>
+              <p>{post.excerpt}</p>
+              <p className="list-post__date">{post.date}</p>
+            </div>
+          </Link>
+        );
+      })}
     </>
   );
 }
