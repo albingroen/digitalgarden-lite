@@ -4,6 +4,7 @@ import renderToString from "next-mdx-remote/render-to-string";
 import Head from "next/head";
 import Link from "next/link";
 import Logo from "../../components/Logo/Logo";
+import SeoImage from "../../components/SeoImage/SeoImage";
 import { getAllPostSlugs, getPostdata } from "../../lib/posts";
 
 const components = {};
@@ -15,6 +16,7 @@ export default function Posts({ source, frontMatter }) {
     <div className="post">
       <Head>
         <meta name="Description" content={frontMatter.excerpt}></meta>
+        <SeoImage title={frontMatter.title} />
         <title>{frontMatter.title}</title>
       </Head>
 
