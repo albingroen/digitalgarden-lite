@@ -22,7 +22,6 @@ export default function Home({ posts, description, title }) {
       <hr />
 
       {posts.map((post) => {
-        console.log({ post });
         return (
           <Link as={`/posts/${post.slug}`} href="/posts/[slug]" key={post.slug}>
             <div className="list-post">
