@@ -16,11 +16,11 @@ export default function PostSeo({ title, description, slug }: IPostSeoProps) {
 
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`https://blog.albingroen.com/posts/${slug}`} />
-      <meta property="og:title" content="{title}" />
+      <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
 
       <meta property="twitter:url" content={`https://blog.albingroen.com/posts/${slug}`} />
-      <meta property="twitter:title" content="{title}" />
+      <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
 
       <SeoImage title={title} />
