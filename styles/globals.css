@@ -101,6 +101,7 @@ hr {
 }
 
 .post .content img {
+  border: 1px solid #eee;
   border-radius: 18px;
   max-width: 100%;
   margin: 2rem 0;

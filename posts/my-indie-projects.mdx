@@ -1,0 +1,69 @@
+---
+title: "My Indie Software Projects"
+date: "2020-12-26"
+author: "Albin Groen"
+excerpt: "A look at my indie software projects, their state, and what they're all about."
+---
+
+# Table of Contents
+
+- [Secretely (Beta)](#secretely)
+- [Keyboardnotes (Live)](#keyboardnotes)
+- [Ui Diff (Live)](#ui-diff)
+- [Cryptoprices (Live)](#cryptoprices)
+
+---
+
+<h1 id="secretely">Secretely</h1>
+
+This is a web application I built with the goal to have a simpler tool to store secrets, passwords, and credentials. I watched as my elders tried to use tools like 1Password and Lastpass, and saw them struggling with those tools' evident complexities.
+
+Secretely is a simple web application where you sign in with your email and a 16 character password. You can create new secrets, which automatically get encrypted using [this encryption library](https://www.npmjs.com/package/simple-encryptor). To read your secrets, you first decrypt and then copy them.
+
+You quickly get a glance when a secret was last updated, so you now which is the right one, and you can easily destroy ones you no longer want to store on Secretely. Your main password is encrypted using [bcrypt](https://www.npmjs.com/package/bcrypt) and data is stored on MongoDB Atlas.
+
+*State: In Beta*
+
+[Click here to go to the product →](https://secretely.com)
+
+![Secretely interface screenshot](https://res.cloudinary.com/albin-groen/image/upload/f_auto/v1608997389/CleanShot_2020-12-26_at_16.42.34_pnxidk.png)
+
+<h1 id="keyboardnotes">Keyboardnotes</h1>
+
+I spent many hours trying to find the perfect tool for taking notes. I discovered that most tools have a lot more than just taking notes. They usually bundle in things like notifications, calendars and todos. They're usually pretty slow and don't have very good support for keyboard navigation.
+
+I built this web application for myself to get a note taking platform where I can simply take notes. Nothing else. Nothing more than that. Notes, entirely through my keyboard. With this tool, keyboard heavy users can take notes without touching their mouse. It's blazing fast, without any special terms like *"cards", "stories", or "pages"*.
+
+The notes are written using a extended version of markdown, which allow for things like checkbox lists, tables, and code blocks. You have a preview on the right of what the outputted markdown looks like. You can quickly jump between notes using the keyboard, resize the editing area, and even bulk select notes. All using your keyboard.
+
+*State: Live*
+
+[Click here to go to the product →](https://keyboardnotes.io)
+
+![Keyboardnotes interface screenshot](https://res.cloudinary.com/albin-groen/image/upload/f_auto/v1608998380/CleanShot_2020-12-26_at_16.59.03_bytadq.png)
+
+<h1 id="ui-diff">UI Diff</h1>
+
+Building a public facing website with many pages require very cautious checks each time you publish a new version. If you've been working on a revision for the sign up page for a couple of months, there's a high likelihood you have changed some code that will result in some other page breaking. This can be very frustrating and damage your band substantially.
+
+Ui Diff monitors your websites' pages on several environments, and warns you if something has changed on a visual level. You can visually browse through your pages, and compare the differences on a pixel to pixel level. This helps you spot what has caused the warning, and help you catch visual regressions before going live.
+
+Ui Diff doesn't add any weight to your website, and is just a script that you run on your local machine before you go live. You manually specify which environments to include in each check in a configuration file. I then use [puppeteer](https://pptr.dev) to screenshot each and every page, also specified by the user, and send them to a dashboard. If a regression has been found, a red notice will be visible on that image. From there you can simply compare one page over several environments to find the bug.
+
+*State: Live*
+
+[Click here to go to the product →](https://ui-diff.com)
+
+![Ui Diff interface screenshot](https://res.cloudinary.com/albin-groen/image/upload/f_auto/v1608999580/CleanShot_2020-12-26_at_17.18.55_feroje.png)
+
+<h1 id="cryptoprices">Cryptoprices</h1>
+
+Back in the boom of Bitcoin a couple of years ago I found myself finding it difficult to find a place where I could get a view of the current price without getting targeted to sign up to crypto wallets. I also found few places where I could get a quick view of several crypto currencies at once, and explore less known ones.
+
+I found [this API](https://developers.coinranking.com/api/documentation) which let me fetch more or less every crypto currency available in one go. Using this API I created Cryptoprices. A place where users can go to quickly, privately, and securely, to inspect cryptocurrency trends, get a grasp of where the market is at, explore new currencies, and keep track of specific prices of interest.
+
+*State: Live*
+
+[Click here to go to the product →](https://cryptoprices.now.sh)
+
+![Cryptoprices interface screenshot](https://res.cloudinary.com/albin-groen/image/upload/f_auto/v1609000489/CleanShot_2020-12-26_at_17.34.24_vwkfc1.png)

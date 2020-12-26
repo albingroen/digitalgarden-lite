@@ -19,6 +19,17 @@ export default function Home({ posts, description, title }) {
 
       <p>{description}</p>
 
+      <br />
+
+      <span>
+        <em>
+          This is my blog.{" "}
+          <a style={{ fontSize: "1em" }} href="https://albingroen.com">
+            Go to my website.
+          </a>{" "}
+        </em>
+      </span>
+
       <hr />
 
       {posts.map((post) => {
