@@ -1,5 +1,12 @@
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
+
 :root {
   --link-color: #4786FF;
+  --link-color-hover: #2767dd;
   --body-color: #333333;
   --text-color: rgb(0, 0, 0, 0.8);
 }
@@ -10,8 +17,6 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--body-color);
@@ -26,22 +31,29 @@ ul, li {
   margin: 1rem 0;
 }
 
+h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 a {
+  transition: 0.1s ease-in-out 0s;
   color: var(--link-color);
   font-size: 18px;
 }
 
+a:hover {
+  transition: 0.1s ease-in-out 0s;
+  color: var(--link-color-hover);
+}
+
 hr {
   opacity: 0.1;
-  margin: 3rem 0;
+  margin: 2.75rem 0;
 }
 
 #logo {
@@ -52,9 +64,9 @@ hr {
 }
 
 .list-post {
-  transition: 0.2s ease-in-out 0s;
+  transition: 0.35s ease-in-out 0s;
   border: 1px solid #eee;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   border-radius: 10px;
   padding: 1.5rem;
   cursor: pointer;
@@ -66,18 +78,32 @@ hr {
 }
 
 .list-post h2 {
+  transition: 0.2s ease-in-out 0s;
   margin-bottom: 0.5rem;
 }
 
+.list-post p {
+  color: #999;
+  font-weight: 500;
+}
+
 .list-post:hover {
-  box-shadow: 0px 10px 10px -5px rgb(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 30px -5px rgb(0, 0, 0, 0.15);
+  transition: 0.35s ease-in-out 0s;
+  transform: scale(1.02);
+}
+
+.list-post:hover h2 {
   transition: 0.2s ease-in-out 0s;
-  transform: scale(1.025);
+  color: var(--link-color);
 }
 
 .list-post__date {
-  margin-top: 0.75rem;
-  opacity: 0.5;
+  margin-top: 1rem;
+}
+
+.list-post__date::before {
+  content: "Published "
 }
 
 .post {
@@ -94,7 +120,14 @@ hr {
   margin-top: 4rem;
 }
 
+.post header p {
+  color: #999;
+  font-weight: 500;
+  font-size: 1.2em;
+}
+
 .post .content p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: var(--text-color);
   line-height: 32px;
   font-size: 18px;
