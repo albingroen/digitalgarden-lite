@@ -56,6 +56,15 @@ hr {
   margin: 2.75rem 0;
 }
 
+code {
+  font-size: 1.25em;
+  padding: 0.5rem 1rem;
+  background-color: #eee;
+  display: block;
+  border-radius: 5px;
+  margin: 2rem 0;
+}
+
 #logo {
   margin-bottom: 4rem;
   max-width: 40px;
@@ -135,7 +144,7 @@ hr {
 
 .post .content img {
   border: 1px solid #eee;
-  border-radius: 18px;
+  border-radius: 8px;
   max-width: 100%;
   margin: 2rem 0;
 }
