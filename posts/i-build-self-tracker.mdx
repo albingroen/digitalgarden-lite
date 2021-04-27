@@ -5,22 +5,22 @@ author: "Albin Groen"
 excerpt: "How and why I built a health tracker application."
 ---
 
-# Introduction
+## Introduction
 
 So, this weekend I decided to build a health tracker application that would exactly fit the needs and requirements that I had. I thought this was a good idea because I noticed that I'd gained some weight during the pandemic, and had gotten out of the rhythm of working out. I realized that I had to start changing some habits. I slowly started the eat healthier and signed up for a gym membership. I had done this whole thing before, but without really achieving any noticeable results. So I decided to build an application where I could track my progress. Not only when it came to weight, but also mood, sleep, and working out.
 
 ---
 
-# The API
+## The API
 
-## Technologies
+### Technologies
 
 - Node.js
 - Express
 - MongoDB
 - JWT's
 
-## Description
+### Description
 
 I decided that I wanted to make it as easy as possible for myself to register records every day, so I didn't mess around with trying to make the application dynamic for different people and what they would want to track themselves. I set up a couple of different data points, like weight, workout amount (in minutes), sleep amount (in hours), and a mood score (0-10). I set up an Express application for this with a MongoDB database. I used Mongoose to clearly define my schemas. I called this entity just Record. I defined the schema, created a cloud database instance, and connected it all. I also actually did set up user accounts, since I did want to allow others to use this too if they would find it useful.
 
@@ -28,9 +28,9 @@ After this, I started testing the API using Postman, and everything worked fine.
 
 ---
 
-# The Frontend
+## The Frontend
 
-## Technologies
+### Technologies
 
 - Ant Design
 - Recharts
@@ -38,7 +38,7 @@ After this, I started testing the API using Postman, and everything worked fine.
 - Auth0
 - SWR
 
-## Description
+### Description
 
 When it came to the frontend part of this project, I felt the same way as I did regarding the API. I wanted to make it as easy as possible to create new records, so I wouldn't have to fiddle around with this every time I wanted to use it. I ended up going with Next.js, since it's pretty easy to get up and running with, and it's incredibly easy to host on Vercel. Regarding the components I went with a prebuilt library called Ant Design, I themed it a bit though, to make it a bit nicer to look at. It basically has every single component you could dream about, and I didn't have time to build these myself, especially not for a small project like this. So this was a perfect fit.
 

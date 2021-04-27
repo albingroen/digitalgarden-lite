@@ -13,36 +13,33 @@ export default function Home({ posts, description, title }) {
         <meta charSet="utf-8" />
       </Head>
 
-      <Logo />
+      <div className="max-w-screen-lg py-12 px-8 mx-auto">
+        <Logo />
 
-      <h1>{title}</h1>
+        <h1 className="text-5xl font-bold mt-12">Blog</h1>
 
-      <p>{description}</p>
+        <h2 className="text-lg mt-8 text-gray-700">{description}</h2>
 
-      <br />
-
-      <span>
-        <em>
-          This is my blog.{" "}
-          <a style={{ fontSize: "1em" }} href="https://albingroen.com">
-            Go to my website.
-          </a>{" "}
-        </em>
-      </span>
-
-      <hr />
-
-      {posts.map((post) => {
-        return (
-          <Link as={`/posts/${post.slug}`} href="/posts/[slug]" key={post.slug}>
-            <div className="list-post">
-              <h2>{post.title}</h2>
-              <p>{post.excerpt}</p>
-              <p className="list-post__date">{post.date}</p>
-            </div>
-          </Link>
-        );
-      })}
+        <div className="grid gap-4 mt-12 grid-cols-1 lg:grid-cols-2">
+          {posts.map((post) => {
+            return (
+              <Link
+                as={`/posts/${post.slug}`}
+                href="/posts/[slug]"
+                key={post.slug}
+              >
+                <div className="p-6 border rounded shadow cursor-pointer select-none transition hover:bg-gray-100">
+                  <span className="text-xl font-semibold truncate">{post.title}</span>
+                  <p className="text-gray-500 mt-2">{post.excerpt}</p>
+                  <p className="uppercase mt-4 text-green-500 font-semibold tracking-wide text-sm">
+                    {post.date}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 }

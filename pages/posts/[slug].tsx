@@ -19,19 +19,25 @@ export default function Posts({ source, frontMatter }) {
         slug={frontMatter.slug}
       />
 
-      <div className="post">
+      <div className="max-w-screen-lg mx-auto py-12 px-8">
         <Logo />
 
-        <Link href="/">Back to all posts</Link>
+        <Link href="/">
+          <span className="mt-12 inline-block text-blue-500 underline cursor-pointer">
+            Back to all posts
+          </span>
+        </Link>
 
-        <header>
-          <h1>{frontMatter.title}</h1>
-          <p>{frontMatter.excerpt}</p>
-        </header>
+        <article className="prose prose-blue prose-lg mx-auto max-w-screen-lg mt-12">
+          <header>
+            <h1>{frontMatter.title}</h1>
+            <p>{frontMatter.excerpt}</p>
+          </header>
 
-        <hr />
+          <hr />
 
-        <div className="content">{content}</div>
+          <div>{content}</div>
+        </article>
       </div>
     </>
   );
