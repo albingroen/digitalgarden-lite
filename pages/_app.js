@@ -1,5 +1,5 @@
-import '../styles/globals.css'
-import Head from 'next/head'
+import "../styles/globals.css";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -8,9 +8,11 @@ function MyApp({ Component, pageProps }) {
         <script async src="https://cdn.splitbee.io/sb.js" />
       </Head>
 
-      <Component {...pageProps} />
+      <div className="antialiased text-gray-900">
+        <Component {...pageProps} />
+      </div>
     </>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
