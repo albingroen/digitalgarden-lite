@@ -28,8 +28,8 @@ export default function Home({ posts, description, title }) {
                 href="/posts/[slug]"
                 key={post.slug}
               >
-                <div className="p-6 border rounded shadow cursor-pointer select-none transition hover:bg-gray-100">
-                  <span className="text-xl font-semibold truncate">{post.title}</span>
+                <div className="p-6 border rounded shadow cursor-pointer select-none transition hover:bg-gray-100 overflow-hidden">
+                  <span className="text-xl font-semibold">{post.title}</span>
                   <p className="text-gray-500 mt-2">{post.excerpt}</p>
                   <p className="uppercase mt-4 text-green-500 font-semibold tracking-wide text-sm">
                     {post.date}
