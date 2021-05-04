@@ -8,11 +8,9 @@ module.exports = {
           css: {
             h1: {
               fontWeight: "700",
-              letterSpacing: theme("letterSpacing.tight"),
             },
             h2: {
               fontWeight: "700",
-              letterSpacing: theme("letterSpacing.tight"),
             },
             h3: {
               fontWeight: "600",
