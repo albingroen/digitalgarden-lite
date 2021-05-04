@@ -25,9 +25,9 @@ export default function Posts({ source, frontMatter }) {
       <div className="max-w-screen-lg mx-auto py-12 px-8">
         <Logo />
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mt-12 ">
           <Link href="/">
-            <span className="mt-12 inline-block text-blue-500 underline cursor-pointer">
+            <span className="text-blue-500 underline cursor-pointer">
               Back to all posts
             </span>
           </Link>
