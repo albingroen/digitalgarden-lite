@@ -1,4 +1,5 @@
 import matter from "gray-matter";
+import { useRouter } from "next/router";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
 import Link from "next/link";
@@ -9,7 +10,9 @@ import { getAllPostSlugs, getPostdata } from "../../lib/posts";
 
 const components = {};
 
-export default function Posts({ source, frontMatter }) {
+export default function Post({ source, frontMatter }) {
+  const { query } = useRouter();
+
   const content = hydrate(source, { components });
 
   const articleContent = useRef<HTMLDivElement>(null);
@@ -18,8 +21,9 @@ export default function Posts({ source, frontMatter }) {
     <>
       <PostSeo
         description={frontMatter.excerpt}
+        slug={query.slug as string}
+        image={frontMatter.image}
         title={frontMatter.title}
-        slug={frontMatter.slug}
       />
 
       <div className="max-w-screen-lg mx-auto py-12 px-8">

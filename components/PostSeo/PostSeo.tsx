@@ -14,6 +14,13 @@ export default function PostSeo({
   image,
   slug,
 }: IPostSeoProps) {
+  console.log({
+    description,
+    title,
+    image,
+    slug,
+  });
+
   return (
     <Head>
       <title>{title}</title>
