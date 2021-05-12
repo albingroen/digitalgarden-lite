@@ -2,7 +2,7 @@ import matter from "gray-matter";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Logo from "../../components/Logo/Logo";
 import PostSeo from "../../components/PostSeo/PostSeo";
 import { getAllPostSlugs, getPostdata } from "../../lib/posts";

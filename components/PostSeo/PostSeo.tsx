@@ -2,12 +2,18 @@ import Head from "next/head";
 import SeoImage from "../SeoImage/SeoImage";
 
 interface IPostSeoProps {
-  description: string
-  title: string
-  slug: string
+  description: string;
+  image?: string;
+  title: string;
+  slug: string;
 }
 
-export default function PostSeo({ title, description, slug }: IPostSeoProps) {
+export default function PostSeo({
+  description,
+  title,
+  image,
+  slug,
+}: IPostSeoProps) {
   return (
     <Head>
       <title>{title}</title>
@@ -15,15 +21,21 @@ export default function PostSeo({ title, description, slug }: IPostSeoProps) {
       <meta name="description" content={description} />
 
       <meta property="og:type" content="website" />
-      <meta property="og:url" content={`https://blog.albingroen.com/posts/${slug}`} />
+      <meta
+        property="og:url"
+        content={`https://blog.albingroen.com/posts/${slug}`}
+      />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
 
-      <meta property="twitter:url" content={`https://blog.albingroen.com/posts/${slug}`} />
+      <meta
+        property="twitter:url"
+        content={`https://blog.albingroen.com/posts/${slug}`}
+      />
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
 
-      <SeoImage title={title} />
+      <SeoImage source={image} title={title} />
     </Head>
-  )
+  );
 }
