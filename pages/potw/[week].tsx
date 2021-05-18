@@ -43,10 +43,10 @@ function Potw({ week, image, products }) {
             </p>
           </header>
 
-          <div className="w-full flex flex-col divide-y rounded-none sm:rounded-md overflow-hidden border shadow-sm bg-white mt-5 sm:mt-8">
+          <div className="w-full flex flex-col divide-y rounded-none sm:rounded-md border shadow-sm bg-white mt-5 sm:mt-8">
             {products.map((product) => (
               <a
-                className="py-3 px-5 sm:p-4 flex items-center justify-between cursor-pointer group transition hover:bg-blue-50"
+                className="py-3 px-5 sm:p-4 flex items-center justify-between cursor-pointer group transition hover:bg-blue-50 focus:outline-none focus:ring-2"
                 href={product.link}
                 key={product.name}
                 target="_blank"
