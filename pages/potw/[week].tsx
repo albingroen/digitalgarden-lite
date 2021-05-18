@@ -3,15 +3,7 @@ import { useRouter } from "next/router";
 import allProducts from "../../potw.json";
 import SeoImage from "../../components/SeoImage/SeoImage";
 
-export default function potw20() {
-  const {
-    query: { week },
-  } = useRouter();
-
-  const { products, image } = week
-    ? allProducts[week as string]
-    : { products: [], image: "" };
-
+function Potw({ week, image, products }) {
   const description = `Albin's products of the week list #${week}`;
   const title = "Products of the Week";
 
@@ -50,6 +42,7 @@ export default function potw20() {
               <a
                 className="p-4 flex items-center justify-between cursor-pointer group transition hover:bg-blue-50"
                 href={product.link}
+                key={product.name}
                 target="_blank"
                 rel="noopener"
               >
@@ -79,3 +72,13 @@ export default function potw20() {
     </>
   );
 }
+
+Potw.getInitialProps = async ({ query: { week } }) => {
+  const { products, image } = week
+    ? allProducts[week as string]
+    : { products: [], image: "" };
+
+  return { week, products, image };
+};
+
+export default Potw;
