@@ -45,7 +45,7 @@ function Potw({ week, image, products }) {
 
           {products.length ? (
             <div className="w-full flex flex-col divide-y rounded-none sm:rounded-md border shadow-sm bg-white mt-5 sm:mt-8">
-              {products.map((product) => (
+              {products.map((product, i) => (
                 <a
                   className="py-3 px-5 sm:p-4 flex items-center justify-between cursor-pointer group transition hover:bg-blue-50 focus:outline-none focus:ring-2"
                   href={product.link}
@@ -55,14 +55,14 @@ function Potw({ week, image, products }) {
                 >
                   <div className="flex items-center space-x-3 sm:space-x-5">
                     <img
-                      className="w-8 sm:w-10 rounded object-cover object-center"
+                      className="w-8 sm:w-10 rounded sm:rounded-md object-cover object-center"
                       alt={`${product.name} logotype`}
                       src={product.logotype}
                     />
 
                     <div>
                       <h2 className="font-medium text-sm sm:text-base">
-                        {product.name}
+                        <span>{i + 1}.</span> <span>{product.name}</span>
                       </h2>
                       <p className="text-xs sm:text-sm mt-0 sm:mt-px text-gray-500">
                         {product.description}
