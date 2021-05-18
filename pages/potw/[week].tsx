@@ -78,7 +78,7 @@ function Potw({ week, image, products }) {
               ))}
             </div>
           ) : (
-            <p className="py-3 px-5 sm:p-4 text-gray-400 rounded-none  sm:rounded-md border shadow-sm bg-white mt-5 sm:mt-8">
+            <p className="py-3 px-5 sm:p-4 text-gray-400 rounded-none  sm:rounded-md border shadow-sm bg-white mt-5 sm:mt-8 text-sm sm:text-base">
               There are no products listed for this week yet...
             </p>
           )}
