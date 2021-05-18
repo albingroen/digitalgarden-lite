@@ -20,7 +20,7 @@ export default function Home({ posts, description, title }) {
 
         <h2 className="text-lg mt-8 text-gray-700">{description}</h2>
 
-        <div className="grid gap-4 mt-12 grid-cols-1 lg:grid-cols-2">
+        <div className="grid gap-6 mt-12 grid-cols-1 lg:grid-cols-2">
           {posts.map((post) => {
             return (
               <Link
@@ -28,7 +28,7 @@ export default function Home({ posts, description, title }) {
                 href="/posts/[slug]"
                 key={post.slug}
               >
-                <div className="p-6 border rounded shadow cursor-pointer select-none transition hover:bg-gray-100 overflow-hidden">
+                <div className="p-6 border rounded-md shadow-sm cursor-pointer select-none transition bg-white hover:bg-gray-100 overflow-hidden">
                   <span className="text-xl font-semibold">{post.title}</span>
                   <p className="text-gray-500 mt-2">{post.excerpt}</p>
                   <p className="uppercase mt-4 text-green-500 font-semibold tracking-wide text-sm">
