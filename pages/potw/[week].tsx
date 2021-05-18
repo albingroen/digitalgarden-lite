@@ -43,38 +43,45 @@ function Potw({ week, image, products }) {
             </p>
           </header>
 
-          <div className="w-full flex flex-col divide-y rounded-none sm:rounded-md border shadow-sm bg-white mt-5 sm:mt-8">
-            {products.map((product) => (
-              <a
-                className="py-3 px-5 sm:p-4 flex items-center justify-between cursor-pointer group transition hover:bg-blue-50 focus:outline-none focus:ring-2"
-                href={product.link}
-                key={product.name}
-                target="_blank"
-                rel="noopener"
-              >
-                <div className="flex items-center space-x-3 sm:space-x-5">
-                  <img
-                    className="w-8 sm:w-10 rounded object-cover object-center"
-                    alt={`${product.name} logotype`}
-                    src={product.logotype}
-                  />
+          {products.length ? (
+            <div className="w-full flex flex-col divide-y rounded-none sm:rounded-md border shadow-sm bg-white mt-5 sm:mt-8">
+              {products.map((product) => (
+                <a
+                  className="py-3 px-5 sm:p-4 flex items-center justify-between cursor-pointer group transition hover:bg-blue-50 focus:outline-none focus:ring-2"
+                  href={product.link}
+                  key={product.name}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <div className="flex items-center space-x-3 sm:space-x-5">
+                    <img
+                      className="w-8 sm:w-10 rounded object-cover object-center"
+                      alt={`${product.name} logotype`}
+                      src={product.logotype}
+                    />
 
-                  <div>
-                    <h2 className="font-medium text-sm sm:text-base">
-                      {product.name}
-                    </h2>
-                    <p className="text-xs sm:text-sm mt-0 sm:mt-px text-gray-500">
-                      {product.description}
-                    </p>
+                    <div>
+                      <h2 className="font-medium text-sm sm:text-base">
+                        {product.name}
+                      </h2>
+                      <p className="text-xs sm:text-sm mt-0 sm:mt-px text-gray-500">
+                        {product.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                <span className="text-blue-500 transition-none group-hover:text-blue-600 text-lg sm:text-sm">
-                  <span className="hidden sm:inline">Go to product </span>&rarr;
-                </span>
-              </a>
-            ))}
-          </div>
+                  <span className="text-blue-500 transition-none group-hover:text-blue-600 text-lg sm:text-sm">
+                    <span className="hidden sm:inline">Go to product </span>
+                    &rarr;
+                  </span>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <p className="py-3 px-5 sm:p-4 text-gray-400 rounded-none  sm:rounded-md border shadow-sm bg-white mt-5 sm:mt-8">
+              There are no products listed for this week yet...
+            </p>
+          )}
         </div>
       </div>
     </>
@@ -82,9 +89,11 @@ function Potw({ week, image, products }) {
 }
 
 Potw.getInitialProps = async ({ query: { week } }) => {
+  const initialValue = { products: [], image: "" };
+
   const { products, image } = week
-    ? allProducts[week as string]
-    : { products: [], image: "" };
+    ? allProducts[week as string] || initialValue
+    : initialValue;
 
   return { week, products, image };
 };
