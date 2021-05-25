@@ -54,7 +54,11 @@ function Potw({ week, image, products }) {
               >
                 <div className="flex items-center space-x-3 sm:space-x-5">
                   <img
-                    className="w-8 sm:w-10 rounded sm:rounded-md object-cover object-center"
+                    className={`w-8 sm:w-10 ${
+                      product.rounded ? "rounded-full" : "rounded sm:rounded-lg"
+                    } ${
+                      product.bordered ? "border" : ""
+                    } object-cover object-center`}
                     alt={`${product.name} logotype`}
                     src={product.logotype}
                   />
