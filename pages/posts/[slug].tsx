@@ -26,18 +26,18 @@ export default function Post({ source, frontMatter }) {
         title={frontMatter.title}
       />
 
-      <div className="max-w-screen-lg mx-auto py-12 px-8">
+      <div className="px-8 py-12 mx-auto max-w-screen-lg">
         <Logo />
 
         <div className="flex items-center justify-between mt-12 ">
           <Link href="/">
-            <span className="text-blue-500 underline cursor-pointer">
+            <span className="text-blue-500 cursor-pointer transition hover:text-blue-600">
               Back to all posts
             </span>
           </Link>
 
           {articleContent.current && (
-            <span className="uppercase text-gray-500 tracking-wide font-semibold font-mono text-sm">
+            <span className="font-mono text-sm font-semibold tracking-wide text-gray-500 uppercase">
               Read time: ~
               {Math.round(
                 articleContent.current.textContent.trim().split(" ").length /
@@ -50,7 +50,7 @@ export default function Post({ source, frontMatter }) {
 
         <article
           ref={articleContent}
-          className="prose prose-blue prose-lg mx-auto max-w-screen-lg mt-12"
+          className="mx-auto mt-12 prose prose-blue prose-lg max-w-screen-lg"
         >
           <header>
             <h1>{frontMatter.title}</h1>
