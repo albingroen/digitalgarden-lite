@@ -43,7 +43,7 @@ function Potw({ week, image, products }) {
 
         {products.length ? (
           <div className="flex flex-col w-full mt-5 bg-white border rounded-none divide-y sm:rounded-md shadow-sm sm:mt-8">
-            {products.map((product) => (
+            {products.map((product, i: number) => (
               <a
                 className="flex items-center justify-between px-5 py-3 cursor-pointer sm:p-4 group transition hover:bg-blue-50 focus:outline-none focus:ring-2"
                 href={product.link}
