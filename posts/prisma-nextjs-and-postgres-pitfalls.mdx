@@ -61,7 +61,7 @@ You want to make sure that you manually opt into using JWT based authentication 
 Using a modern but untested stack will always be challenging. I really enjoyed working with this stack (especially in development mode), and therefore got pretty frustrated when I ran into so many issues when going into production. A couple of things that I still find a little bit annoying, but that I can't really get away from is that:
 
 1. Cold starts will always be an issue when working in a serverless environment
-2. Joins (*"includes"* in Prisma) will add a certain amount of extra delay to the execution time.
-    - I think you have to make some sort of evaluation here for yourself whether you want to put off this to the execution time by doing a lot of includes, or whether you want to make more requests on the client instead.
+2. Joins (_"includes"_ in Prisma) will add a certain amount of extra delay to the execution time.
+   - I think you have to make some sort of evaluation here for yourself whether you want to put off this to the execution time by doing a lot of includes, or whether you want to make more requests on the client instead.
 
 If you want to read more about the process of discovering these issues, solutions, and measurements, you can take a look at [this GitHub issue](https://github.com/prisma/prisma/issues/7009). And, if you like this sort of content, you can follow me on Twitter [@albingroen](https://twitter.com/albingroen).
