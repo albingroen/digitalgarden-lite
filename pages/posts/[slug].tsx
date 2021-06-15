@@ -49,7 +49,7 @@ export default function Post({ source, frontMatter }) {
 
         <article
           ref={articleContent}
-          className="mx-auto mt-12 prose prose-blue prose-lg max-w-screen-lg"
+          className="mx-auto mt-12 prose prose-blue prose-lg max-w-screen-lg dark:prose-light"
         >
           <header>
             <h1>{frontMatter.title}</h1>

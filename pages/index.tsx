@@ -37,15 +37,19 @@ export default function Home({ posts, description, title }) {
 
         <h1 className="mt-12 text-5xl font-bold">Blog</h1>
 
-        <h2 className="mt-8 text-lg text-gray-700">{description}</h2>
+        <h2 className="mt-8 text-lg text-gray-700 dark:text-gray-500">
+          {description}
+        </h2>
 
         <div className="mt-12 grid gap-6 grid-cols-1 lg:grid-cols-2">
           {posts.map((post) => {
             return (
               <a href={`/posts/${post.slug}`} key={post.slug}>
-                <div className="p-6 overflow-hidden bg-white border cursor-pointer select-none rounded-md shadow-sm transition hover:bg-gray-100">
+                <div className="p-6 overflow-hidden bg-white border cursor-pointer select-none dark:border-gray-700 dark:bg-gray-800 rounded-md shadow-sm transition hover:bg-gray-100 dark:hover:bg-gray-900">
                   <span className="text-xl font-semibold">{post.title}</span>
-                  <p className="mt-2 text-gray-500">{post.excerpt}</p>
+                  <p className="mt-2 text-gray-500 dark:text-gray-400">
+                    {post.excerpt}
+                  </p>
                   <p className="mt-4 text-sm font-semibold tracking-wide text-green-500 uppercase">
                     {post.date}
                   </p>

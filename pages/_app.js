@@ -15,11 +15,9 @@ function MyApp({ Component, pageProps }) {
         <script async src="https://cdn.splitbee.io/sb.js" />
       </Head>
 
-      <div className="antialiased text-gray-900">
-        <MDXProvider components={components}>
-          <Component {...pageProps} />
-        </MDXProvider>
-      </div>
+      <MDXProvider components={components}>
+        <Component {...pageProps} />
+      </MDXProvider>
     </>
   );
 }
