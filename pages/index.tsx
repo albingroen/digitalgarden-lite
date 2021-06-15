@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import Logo from "../components/Logo/Logo";
 import { getSortedPosts } from "../lib/posts";
 
@@ -43,11 +42,7 @@ export default function Home({ posts, description, title }) {
         <div className="mt-12 grid gap-6 grid-cols-1 lg:grid-cols-2">
           {posts.map((post) => {
             return (
-              <Link
-                as={`/posts/${post.slug}`}
-                href="/posts/[slug]"
-                key={post.slug}
-              >
+              <a href={`/posts/${post.slug}`} key={post.slug}>
                 <div className="p-6 overflow-hidden bg-white border cursor-pointer select-none rounded-md shadow-sm transition hover:bg-gray-100">
                   <span className="text-xl font-semibold">{post.title}</span>
                   <p className="mt-2 text-gray-500">{post.excerpt}</p>
@@ -55,7 +50,7 @@ export default function Home({ posts, description, title }) {
                     {post.date}
                   </p>
                 </div>
-              </Link>
+              </a>
             );
           })}
         </div>

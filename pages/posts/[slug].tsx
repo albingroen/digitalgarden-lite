@@ -2,7 +2,6 @@ import matter from "gray-matter";
 import { useRouter } from "next/router";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
-import Link from "next/link";
 import { useRef } from "react";
 import Logo from "../../components/Logo/Logo";
 import PostSeo from "../../components/PostSeo/PostSeo";
@@ -30,11 +29,11 @@ export default function Post({ source, frontMatter }) {
         <Logo />
 
         <div className="flex items-center justify-between mt-12 ">
-          <Link href="/">
+          <a href="/">
             <span className="text-blue-500 cursor-pointer transition hover:text-blue-600">
               Back to all posts
             </span>
-          </Link>
+          </a>
 
           {articleContent.current && (
             <span className="font-mono text-sm font-semibold tracking-wide text-gray-500 uppercase">
