@@ -20,6 +20,7 @@ export default function Post({ source, frontMatter }) {
     <>
       <PostSeo
         description={frontMatter.excerpt}
+        keywords={frontMatter.keywords}
         slug={query.slug as string}
         image={frontMatter.image}
         title={frontMatter.title}
