@@ -16,54 +16,54 @@ This script is a little bit finicky since what it mostly relies on is the use of
 
 ```applescript
 on run {input, parameters}
-	
+
 	tell application "kitty"
     -- Open Kitty terminal emulator
 		activate
-		
+
 		tell application "System Events"
 			tell process "kitty"
 				delay 2
-				
+
 				keystroke "a" using control down
 				keystroke ":new"
 				key code 36
-				
+
 				keystroke "cd && vim tracing.ts"
 				key code 36
-				
+
 				keystroke "a" using control down
 				keystroke "v"
-				
+
 				keystroke "clear && neofetch"
 				key code 36
-				
+
 				keystroke "a" using control down
 				keystroke "-"
-				
+
 				keystroke "htop"
 				key code 36
-				
+
 				delay 4
-				
+
 				key code 26 using {shift down, command down}
 				delay 1
 				key code 36
-				
+
 				delay 2
-				
+
 				keystroke "a" using control down
 				keystroke "x"
 				keystroke "y"
-				
+
 				keystroke "a" using control down
 				keystroke "x"
 				keystroke "y"
-				
+
 				keystroke "a" using control down
 				keystroke "x"
 				keystroke "y"
-				
+
 				keystroke "w" using command down
 			end tell
 		end tell

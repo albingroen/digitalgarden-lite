@@ -1,9 +1,9 @@
 const fs = require("fs");
 
 function exportPostsToJson() {
-  const files = fs.readdirSync("../posts", "utf8");
+  const files = fs.readdirSync("posts", "utf8");
   const posts = files.map((fileName) => {
-    const fileContent = fs.readFileSync(`../posts/${fileName}`, "utf8");
+    const fileContent = fs.readFileSync(`posts/${fileName}`, "utf8");
 
     const lines = fileContent.split("\n");
     lines.splice(0, 1);
@@ -18,7 +18,7 @@ function exportPostsToJson() {
     };
   });
 
-  fs.writeFileSync("../public/posts.json", JSON.stringify(posts, null, 2));
+  fs.writeFileSync("public/posts.json", JSON.stringify(posts, null, 2));
 
   console.log("Done!");
 }
