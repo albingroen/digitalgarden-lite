@@ -42,7 +42,7 @@ const CodeBlock = ({ children, className }) => {
       >
         {({ style, tokens, getLineProps, getTokenProps }) => (
           <pre
-            className="border-b border-l border-r border-gray-600"
+            className="border-gray-600 dark:border-b dark:border-l dark:border-r"
             style={{
               ...style,
               borderTopRightRadius: 0,
