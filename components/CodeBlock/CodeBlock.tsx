@@ -1,15 +1,37 @@
 import Highlight, { defaultProps } from "prism-react-renderer";
 import Dracula from "prism-react-renderer/themes/palenight";
+import { ClipboardIcon, ClipboardCheckIcon } from "@heroicons/react/outline";
+import copy from "copy-to-clipboard";
+import { useState } from "react";
 
 const CodeBlock = ({ children, className }) => {
+  const [copied, setCopied] = useState(false);
+
   const language = className
     ? className.replace(/language-/, "")
     : "javascript";
 
   return (
     <div className="border-gray-700">
-      <div className="p-4 text-base font-medium leading-none tracking-wide text-gray-400 capitalize bg-gray-700 border border-gray-600 rounded-b-none rounded-md">
+      <div className="flex items-center justify-between p-4 text-base font-medium leading-none tracking-wide text-gray-400 capitalize bg-gray-700 border border-gray-600 rounded-b-none rounded-md">
         {language}
+        <button
+          aria-aria-label="Copy code"
+          onClick={() => {
+            copy(children);
+            setCopied(true);
+            setTimeout(() => {
+              setCopied(false);
+            }, 2000);
+          }}
+          className="cursor-pointer hover:text-gray-300"
+        >
+          {copied ? (
+            <ClipboardCheckIcon className="w-5" />
+          ) : (
+            <ClipboardIcon className="w-5" />
+          )}
+        </button>
       </div>
 
       <Highlight
