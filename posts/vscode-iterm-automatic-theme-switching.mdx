@@ -18,7 +18,7 @@ Select Application, and click the blue button.
 
 Now, we're going to choose an AppleScript block from the left-hand side menu. Simply search for AppleScript in the search-bar, and drag it into the canvas. Once it's in there, just add this piece of code, name it something reasonable, like **Toggle dark mode**, and save it somewhere you can find it later.
 
-```
+```applescript
 on run {input, parameters}
 
 	tell application "System Events"
@@ -46,7 +46,7 @@ iTerm2 doesn't have any built-in feature for switching themes depending on the s
 
 Now, name the file however you want, but preferably something relevant, like **auto_dark_mode.py**. After this, locate the file and open it inside of something like VScode, Vim, or Sublime, and paste the following content.
 
-```
+```python
 #!/usr/bin/env python3
 
 import asyncio
