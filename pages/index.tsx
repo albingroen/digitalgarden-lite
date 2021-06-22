@@ -45,8 +45,12 @@ export default function Home({ posts, description, title }) {
         <div className="mt-8 grid gap-6 grid-cols-1 lg:grid-cols-2">
           {posts
             .sort((a, b) => Number(!!b.image) - Number(!!a.image))
-            .filter((post) =>
-              JSON.stringify(post).toLowerCase().includes(search.toLowerCase())
+            .filter(
+              (post) =>
+                !post.draft &&
+                JSON.stringify(post)
+                  .toLowerCase()
+                  .includes(search.toLowerCase())
             )
             .map((post) => {
               return (

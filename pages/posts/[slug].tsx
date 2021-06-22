@@ -2,7 +2,7 @@ import matter from "gray-matter";
 import { useRouter } from "next/router";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Logo from "../../components/Logo/Logo";
 import PostSeo from "../../components/PostSeo/PostSeo";
 import { getAllPostSlugs, getPostdata } from "../../lib/posts";
@@ -11,13 +11,23 @@ import authors from "../../lib/authors";
 const components = {};
 
 export default function Post({ source, frontMatter }) {
-  const { query } = useRouter();
+  const { query, push } = useRouter();
 
   const content = hydrate(source, { components });
 
   const articleContent = useRef<HTMLDivElement>(null);
 
   const author = frontMatter.author && authors[frontMatter.author];
+
+  useEffect(() => {
+    if (frontMatter.draft) {
+      push("/");
+    }
+  }, []);
+
+  if (frontMatter.draft) {
+    return null;
+  }
 
   return (
     <>

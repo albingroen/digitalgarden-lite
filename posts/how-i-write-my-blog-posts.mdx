@@ -1,0 +1,157 @@
+---
+title: "How I Write My Blog Posts"
+date: "2021-06-22"
+author: "Albin Groen"
+excerpt: "A run through of how I write my blog articles on my custom blog platform"
+keywords: ["blog", "next.js", "MDX", "markdown"]
+draft: true
+---
+
+Now I have been writing articles on my new custom blog platform for almost
+exactly 6 months. In this article I want to give a little bit of a demo of how
+my platform is set up, and how I make it as easy as possible for me to write a
+post.
+
+I have tried a lot of different set-up:s throughout the years. Everything from
+directly writing on Medium, to building a platform using Sanity as a headless
+content management system (CMS). Nothing really stuck for me though, and I kept
+trying new platforms, and build new custom set-up:s. Now I think I've come to
+a point wheere I enjoy writing new articles on a weekly basis.
+
+![Depdenencies](https://res.cloudinary.com/albin-groen/image/upload/v1624398274/deps-dark_kzesnb.png)
+
+## How does it work?
+
+So, the way this works is that I have a folder called `posts`, and every `.mdx`
+file inside of their will be published as a blog article. Since we use MDX,
+which is a really cool technology by the way, we can specify some metadata
+about the file in the top using the following syntax. Here I specify the title,
+description, author, meta image, keywords, & date of the article.
+
+```MDX
+---
+title: "How I Write My Blog Posts"
+date: "2021-06-22"
+author: "Albin Groen"
+excerpt: "A run through of how I write my blog articles on my custom blog platform"
+keywords: ["blog", "next.js", "MDX", "markdown"]
+---
+```
+
+### Author metadata
+
+To attach some extra information about the authors, I have a separate file
+called `authors.ts` that looks something like this. Using this I can show the
+avatar and the author's name at the top of each article.
+
+```javascript
+const authors = {
+  "Albin Groen": {
+    name: "Albin Groen",
+    avatar:
+      "https://res.cloudinary.com/albin-groen/image/upload/v1622634189/avatar_ax3k0t.png",
+  },
+};
+```
+
+---
+
+### Code blocks
+
+What's nice about MDX is that you can basically just write JSX in between your
+markdown content. This makes showing code examples, and even actual components
+really easy. I've built a custom code block component for my needs, which
+includes syntax highlighting, copying to clipboard, and a language label. Heres,
+the code for this component.
+
+```typescript
+import Highlight, { defaultProps } from "prism-react-renderer";
+import Dracula from "prism-react-renderer/themes/palenight";
+import { ClipboardIcon, ClipboardCheckIcon } from "@heroicons/react/outline";
+import copy from "copy-to-clipboard";
+import { useState } from "react";
+
+const CodeBlock = ({ children, className }) => {
+  const [copied, setCopied] = useState(false);
+
+  const language = className
+    ? className.replace(/language-/, "")
+    : "javascript";
+
+  return (
+    <div className="border-gray-700">
+      <div className="flex items-center justify-between p-4 text-base font-medium leading-none tracking-wide text-gray-400 capitalize bg-gray-700 border border-gray-600 rounded-b-none rounded-md">
+        {language}
+        <button
+          aria-aria-label="Copy code"
+          onClick={() => {
+            copy(children);
+            setCopied(true);
+            setTimeout(() => {
+              setCopied(false);
+            }, 2000);
+          }}
+          className="cursor-pointer hover:text-gray-300"
+        >
+          {copied ? (
+            <ClipboardCheckIcon className="w-5" />
+          ) : (
+            <ClipboardIcon className="w-5" />
+          )}
+        </button>
+      </div>
+
+      <Highlight
+        {...defaultProps}
+        code={children}
+        language={language}
+        theme={Dracula}
+      >
+        {({ style, tokens, getLineProps, getTokenProps }) => (
+          <pre
+            className="border-b border-l border-r border-gray-600"
+            style={{
+              ...style,
+              borderTopRightRadius: 0,
+              borderTopLeftRadius: 0,
+              padding: "20px",
+              margin: 0,
+            }}
+          >
+            {tokens
+              .filter((_, i) => i !== tokens.length - 1)
+              .map((line, i) => (
+                <div key={i} {...getLineProps({ line, key: i })}>
+                  {line.map((token, key) => (
+                    <span key={key} {...getTokenProps({ token, key })} />
+                  ))}
+                </div>
+              ))}
+          </pre>
+        )}
+      </Highlight>
+    </div>
+  );
+};
+```
+
+To actually use this component, we have to specify that it's available
+through a MdxProvider that we wrap our app with. So now, when we write a ```
+in our markdown content, we'll instead get a nice-looking code block.
+
+```javascript
+import { MDXProvider } from "@mdx-js/react";
+import CodeBlock from "../components/CodeBlock/CodeBlock";
+
+const components = {
+  code: CodeBlock,
+};
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <MDXProvider components={components}>
+      <Component {...pageProps} />
+    </MDXProvider>
+  );
+}
+```
