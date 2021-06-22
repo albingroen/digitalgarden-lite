@@ -1,8 +1,11 @@
 import Head from "next/head";
+import { useState } from "react";
 import Logo from "../components/Logo/Logo";
 import { getSortedPosts } from "../lib/posts";
 
 export default function Home({ posts, description, title }) {
+  const [search, setSearch] = useState<string>("");
+
   return (
     <>
       <Head>
@@ -41,22 +44,34 @@ export default function Home({ posts, description, title }) {
           {description}
         </h2>
 
-        <div className="mt-12 grid gap-6 grid-cols-1 lg:grid-cols-2">
-          {posts.map((post) => {
-            return (
-              <a href={`/posts/${post.slug}`} key={post.slug}>
-                <div className="p-6 overflow-hidden bg-white border cursor-pointer select-none dark:border-gray-700 dark:bg-gray-800 rounded-md shadow-sm transition hover:bg-gray-100 dark:hover:bg-gray-900">
-                  <span className="text-xl font-semibold">{post.title}</span>
-                  <p className="mt-2 text-gray-500 dark:text-gray-400">
-                    {post.excerpt}
-                  </p>
-                  <p className="mt-4 text-sm font-semibold tracking-wide text-green-500 uppercase">
-                    {post.date}
-                  </p>
-                </div>
-              </a>
-            );
-          })}
+        <input
+          className="px-4 py-2 mt-10 bg-transparent border rounded dark:border-gray-700"
+          onChange={(e) => setSearch(e.currentTarget.value)}
+          placeholder="Search for a blog post..."
+          value={search}
+          type="text"
+        />
+
+        <div className="mt-8 grid gap-6 grid-cols-1 lg:grid-cols-2">
+          {posts
+            .filter((post) =>
+              JSON.stringify(post).toLowerCase().includes(search.toLowerCase())
+            )
+            .map((post) => {
+              return (
+                <a href={`/posts/${post.slug}`} key={post.slug}>
+                  <div className="p-6 overflow-hidden bg-white border cursor-pointer select-none dark:border-gray-700 dark:bg-gray-800 rounded-md shadow-sm transition hover:bg-gray-100 dark:hover:bg-gray-900">
+                    <span className="text-xl font-semibold">{post.title}</span>
+                    <p className="mt-2 text-gray-500 dark:text-gray-400">
+                      {post.excerpt}
+                    </p>
+                    <p className="mt-4 text-sm font-semibold tracking-wide text-green-500 uppercase">
+                      {post.date}
+                    </p>
+                  </div>
+                </a>
+              );
+            })}
         </div>
       </div>
     </>
