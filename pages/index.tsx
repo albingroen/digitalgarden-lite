@@ -32,10 +32,6 @@ export default function Home({ posts, description, title }) {
 
         <h1 className="mt-12 text-5xl font-bold">Your next door tech blog</h1>
 
-        <h2 className="mt-8 text-lg text-gray-700 dark:text-gray-500">
-          {description}
-        </h2>
-
         <input
           className="px-4 py-2 mt-10 bg-transparent border rounded dark:border-gray-700"
           onChange={(e) => setSearch(e.currentTarget.value)}
