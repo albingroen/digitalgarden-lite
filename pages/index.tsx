@@ -30,10 +30,12 @@ export default function Home({ posts, description, title }) {
           </div>
         </div>
 
-        <h1 className="mt-12 text-5xl font-bold">Your next door tech blog</h1>
+        <h1 className="mt-12 text-4xl font-bold sm:mt-24 sm:text-5xl">
+          Your next door tech blog
+        </h1>
 
         <input
-          className="px-4 py-2 mt-10 bg-transparent border rounded dark:border-gray-700"
+          className="w-full px-4 py-2 mt-10 bg-transparent border rounded sm:w-auto dark:border-gray-700"
           onChange={(e) => setSearch(e.currentTarget.value)}
           placeholder="Search for a blog post..."
           value={search}
@@ -52,7 +54,7 @@ export default function Home({ posts, description, title }) {
                   <div className="p-6 overflow-hidden bg-white border cursor-pointer select-none dark:border-gray-700 dark:bg-gray-800 rounded-md shadow-sm transition hover:bg-gray-100 dark:hover:bg-gray-900">
                     {post.image && (
                       <img
-                        className="object-cover object-center w-full h-64 mb-6 rounded"
+                        className="object-cover object-center w-full h-32 mb-6 rounded sm:h-64"
                         alt={`${post.title} thumbnail`}
                         src={post.image}
                       />
