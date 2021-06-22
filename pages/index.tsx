@@ -25,20 +25,12 @@ export default function Home({ posts, description, title }) {
               rel="noopener noreferrer"
               target="_blank"
             >
-              About Albin
-            </a>
-            <a
-              className="text-blue-500 cursor-pointer transition hover:text-blue-600"
-              href="https://portfolio.albingroen.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Portfolio
+              About the author
             </a>
           </div>
         </div>
 
-        <h1 className="mt-12 text-5xl font-bold">Blog</h1>
+        <h1 className="mt-12 text-5xl font-bold">Your next door tech blog</h1>
 
         <h2 className="mt-8 text-lg text-gray-700 dark:text-gray-500">
           {description}
@@ -54,6 +46,7 @@ export default function Home({ posts, description, title }) {
 
         <div className="mt-8 grid gap-6 grid-cols-1 lg:grid-cols-2">
           {posts
+            .sort((a, b) => Number(!!b.image) - Number(!!a.image))
             .filter((post) =>
               JSON.stringify(post).toLowerCase().includes(search.toLowerCase())
             )
@@ -61,7 +54,14 @@ export default function Home({ posts, description, title }) {
               return (
                 <a href={`/posts/${post.slug}`} key={post.slug}>
                   <div className="p-6 overflow-hidden bg-white border cursor-pointer select-none dark:border-gray-700 dark:bg-gray-800 rounded-md shadow-sm transition hover:bg-gray-100 dark:hover:bg-gray-900">
-                    <span className="text-xl font-semibold">{post.title}</span>
+                    {post.image && (
+                      <img
+                        className="object-cover object-center w-full h-64 mb-6 rounded"
+                        alt={`${post.title} thumbnail`}
+                        src={post.image}
+                      />
+                    )}
+                    <h3 className="text-xl font-semibold">{post.title}</h3>
                     <p className="mt-2 text-gray-500 dark:text-gray-400">
                       {post.excerpt}
                     </p>
