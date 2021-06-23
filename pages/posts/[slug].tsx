@@ -33,7 +33,7 @@ export default function Post({ source, frontMatter }) {
     <>
       <PostSeo
         description={frontMatter.excerpt}
-        keywords={frontMatter.keywords}
+        keywords={frontMatter.tags}
         slug={query.slug as string}
         image={frontMatter.image}
         title={frontMatter.title}
@@ -59,18 +59,31 @@ export default function Post({ source, frontMatter }) {
               {frontMatter.excerpt}
             </p>
 
-            <div className="flex flex-col items-baseline justify-between mt-8 sm:mt-6 space-y-8 sm:space-y-0 sm:flex-row">
-              <div className="flex items-center justify-between">
-                {articleContent.current && (
-                  <span className="font-mono text-sm font-semibold tracking-wide text-gray-500 uppercase sm:text-base">
-                    Read time: ~
-                    {Math.round(
-                      articleContent.current.textContent.trim().split(" ")
-                        .length / 200
-                    )}{" "}
-                    minutes
-                  </span>
-                )}
+            <div className="flex flex-col items-start justify-between mt-8 sm:items-center sm:mt-6 space-y-8 sm:space-y-0 sm:flex-row">
+              <div className="flex flex-col">
+                <div className="flex items-center justify-between">
+                  {articleContent.current && (
+                    <span className="font-mono text-sm font-semibold tracking-wide text-gray-400 uppercase dark:text-gray-500">
+                      Read time: ~
+                      {Math.round(
+                        articleContent.current.textContent.trim().split(" ")
+                          .length / 200
+                      )}{" "}
+                      minutes
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex flex-wrap items-center mt-2 gap-1.5 sm:gap-2">
+                  {frontMatter.tags.map((tag) => (
+                    <span
+                      className="inline-block py-1 px-1 sm:py-1 sm:px-1.5 sm:py-px text-xs sm:text-sm leading-none text-blue-500 bg-blue-50 border border-blue-300 rounded-sm shadow-sm"
+                      key={tag}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               <div className="flex items-center space-x-5">
