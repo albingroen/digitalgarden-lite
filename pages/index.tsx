@@ -34,7 +34,7 @@ export default function Home({ posts, description, title }) {
           Albin Groen's blog
         </h1>
 
-        <p className="mt-4 text-base text-gray-500 sm:mt-6 sm:text-lg">
+        <p className="mt-2 text-base text-gray-500 sm:mt-4 sm:text-lg">
           Weekly blog posts about technology, design and business
         </p>
 
