@@ -31,11 +31,15 @@ export default function Home({ posts, description, title }) {
         </div>
 
         <h1 className="mt-12 text-4xl font-bold sm:mt-24 sm:text-5xl">
-          Your next door tech blog
+          Albin Groen's blog
         </h1>
 
+        <p className="mt-4 text-base text-gray-500 sm:mt-6 sm:text-lg">
+          Weekly blog posts about technology, design and business
+        </p>
+
         <input
-          className="w-full px-4 py-2 mt-10 bg-transparent border rounded sm:w-auto dark:border-gray-700"
+          className="w-full px-4 py-2 mt-8 bg-transparent border rounded sm:w-auto dark:border-gray-700"
           onChange={(e) => setSearch(e.currentTarget.value)}
           placeholder="Search for a blog post..."
           value={search}
