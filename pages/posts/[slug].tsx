@@ -88,7 +88,7 @@ export default function Post({ source, frontMatter }) {
 
               <div className="flex items-center space-x-5">
                 <img
-                  className="object-cover object-center w-12 border rounded-full dark:border-gray-700"
+                  className="object-cover object-center w-12 rounded-full"
                   alt={`Author avatar`}
                   src={author.avatar}
                 />
@@ -96,7 +96,7 @@ export default function Post({ source, frontMatter }) {
                   <h5 className="font-mono text-lg font-medium">
                     {author.name}
                   </h5>
-                  <p className="mt-px text-gray-500">
+                  <p className="text-gray-500">
                     Posted {frontMatter.date}
                   </p>
                 </div>
