@@ -10,10 +10,10 @@ image: "https://res.cloudinary.com/albin-groen/image/upload/v1625159331/vim-pris
 ![Prisma & Vim logos](https://res.cloudinary.com/albin-groen/image/upload/v1625159331/vim-prisma_lskc2i.png)
 
 Prisma is a really nice set of packages that help you write your database and
-API functionality. VSCode has a Prisma extension that help you format your
+API functionality. VSCode has a Prisma extension that helps you format your
 schema files appropriately. If you're using Vim, you can actually still achieve
 this functionality with a couple of plugins. First, you're going to need some
-sort of plugin manager for Vim in order to install third party plugins from the
+sort of plugin manager for Vim in order to install third-party plugins from the
 community. In my case, I use Neovim together with vim-plug.
 
 ## Install vim-plug with Neovim
@@ -36,9 +36,9 @@ call plug#end()
 ## Language Servers
 
 In order to get Prisma autocompletion in Vim, the easiest way to get started is
-by using `coc.nvim` and installing a couple of coc plugins. Start by adding
-this to the plugins and then sourcing the file, and then running `PlugInstall`
-from the Vim command line.
+by using coc.nvim and installing a couple of COC plugins. Start by adding this
+to the plugins and then sourcing the file, and then running PlugInstall from
+the Vim command line.
 
 ```VimScript
 " Code intellisense / autocompletion
@@ -66,7 +66,9 @@ Then you simply need to run the following command to install the Prisma plugin f
 
 ### Formatting
 
-If you want to format the Prisma file, you can simply run the `:Format` command from within Vim. If you instead want to auto-format the file on save, you can add this to the coc config file (that you can open by running `:CocConfig`).
+If you want to format the Prisma file, you can simply run the :Format command
+from within Vim. If you instead want to auto-format the file on saving, you can
+add this to the COC config file (that you can open by running :CocConfig).
 
 ```json
 {
