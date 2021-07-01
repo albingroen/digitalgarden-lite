@@ -96,9 +96,7 @@ export default function Post({ source, frontMatter }) {
                   <h5 className="font-mono text-lg font-medium">
                     {author.name}
                   </h5>
-                  <p className="text-gray-500">
-                    Posted {frontMatter.date}
-                  </p>
+                  <p className="text-gray-500">Posted {frontMatter.date}</p>
                 </div>
               </div>
             </div>
