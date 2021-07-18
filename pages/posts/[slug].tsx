@@ -77,7 +77,7 @@ export default function Post({ source, frontMatter }) {
                 <div className="flex flex-wrap items-center mt-2 gap-1.5 sm:gap-2">
                   {frontMatter.tags.map((tag) => (
                     <span
-                      className="inline-block py-1 px-1 sm:py-1 sm:px-1.5 sm:py-px text-xs sm:text-sm leading-none text-blue-500 bg-blue-50 border border-blue-300 rounded-sm shadow-sm"
+                      className="inline-block py-1 px-1 sm:py-1 sm:px-1.5 sm:py-px text-xs sm:text-sm leading-none text-blue-500 bg-blue-50 dark:text-blue-300 dark:bg-blue-900 border border-blue-300 dark:border-blue-600 rounded-sm shadow-sm"
                       key={tag}
                     >
                       {tag}
