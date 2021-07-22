@@ -1,7 +1,7 @@
 import Head from "next/head";
-import { useState } from "react";
 import Logo from "../components/Logo/Logo";
 import { getSortedPosts } from "../lib/posts";
+import { useState } from "react";
 
 export default function Home({ posts, description, title }) {
   const [search, setSearch] = useState<string>("");

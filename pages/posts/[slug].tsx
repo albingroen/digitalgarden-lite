@@ -52,7 +52,7 @@ export default function Post({ source, frontMatter }) {
 
         <article className="mt-12 sm:mt-24">
           <header>
-            <h1 className="text-4xl font-bold leading-snug sm:text-5xl">
+            <h1 className="text-4xl font-bold leading-tight sm:leading-tight sm:text-5xl">
               {frontMatter.title}
             </h1>
             <p className="mt-6 text-lg font-medium text-gray-400 sm:text-xl">
