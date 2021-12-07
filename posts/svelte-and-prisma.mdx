@@ -2,7 +2,7 @@
 title: "Building a Web App With Svelte & Prisma"
 date: "2021-12-07"
 author: "Albin Groen"
-excerpt: "How you can build a serverless web application with Svelte Kit & Prisma"
+excerpt: "How you can build a serverless web application with SvelteKit & Prisma"
 tags: ["technology", "programming", "Svelte", "Prisma"]
 image: "https://res.cloudinary.com/albin-groen/image/upload/v1638886957/svelte-prisma-min_jntqkh.png"
 ---
@@ -13,10 +13,10 @@ So in this article, I thought I would go through how you can use two really
 good technologies in order to build a very modern, flexible, fast, and
 easy-to-use serverless web application. Our frontend in this case will be
 provided and built using the relatively new frontend framework, Svelte & Svelte
-Kit. You can look at Svelte Kit like kind of the Svelte version of React's
+Kit. You can look at SvelteKit like kind of the Svelte version of React's
 Next.js.
 
-The backend for this application will be provided by Svelte Kit's serverless
+The backend for this application will be provided by SvelteKit's serverless
 endpoints feature. This means that you can simply create a JavaScript or
 TypeScript file inside of `src/routes`, and then you can hit this endpoint in
 order to submit, update, get, or delete data (which can live inside of
@@ -24,7 +24,7 @@ database, since the logic is run server-side).
 
 ## Getting started
 
-To set up our project, we need to start by creating a new Svelte Kit
+To set up our project, we need to start by creating a new SvelteKit
 application. This can be done really easily by running this command in your
 terminal. Note that this article focuses on people using Macs, but most of the
 functionality should be available on Windows & Linux as well.
@@ -170,7 +170,7 @@ parameter, a new user should be created inside of the database table.
 
 ## Frontend (Svelte)
 
-Now that we've got a basic Svelte Kit endpoint set up for creating a new user,
+Now that we've got a basic SvelteKit endpoint set up for creating a new user,
 we can add a form to try out this functionality. To do so, we can update the
 `src/routes/index.js` to look something like this. With that code, all saved and
 ready to go, filling out the form and then clicking the button, should, in
@@ -201,7 +201,7 @@ theory, submit the data to the serverless endpoint and run create a new user.
   }
 </script>
 
-<form on:submit|preventDefault|stopPropagataion={handleSubmit}>
+<form on:submit|preventDefault|stopPropagation={handleSubmit}>
 
   <input bind:value={email} type="email" required />
   <input bind:value={password} type="password" required />
@@ -215,7 +215,7 @@ theory, submit the data to the serverless endpoint and run create a new user.
 
 ## Hosting
 
-Hosting a Svelte Kit app is quite easy to do on most platforms. One thing you
+Hosting a SvelteKit app is quite easy to do on most platforms. One thing you
 have to do at this point though, is you have to set up an adapter for the
 hosting provider you're going to use. So, for example, if you want to host on
 [Vercel](https://vercel.com), you have to use the
