@@ -29,6 +29,12 @@ export default function Post({ source, frontMatter }) {
     return null;
   }
 
+  const readTime =
+    articleContent?.current?.textContent &&
+    Math.round(
+      articleContent.current.textContent.trim().split(" ").length / 200
+    );
+
   return (
     <>
       <PostSeo
@@ -64,12 +70,8 @@ export default function Post({ source, frontMatter }) {
                 <div className="flex items-center justify-between">
                   {articleContent.current && (
                     <span className="font-mono text-sm font-semibold tracking-wide text-gray-400 uppercase dark:text-gray-500">
-                      Read time: ~
-                      {Math.round(
-                        articleContent.current.textContent.trim().split(" ")
-                          .length / 200
-                      )}{" "}
-                      minutes
+                      Read time: ~{readTime}{" "}
+                      {readTime === 1 ? "minute" : "minutes"}
                     </span>
                   )}
                 </div>
