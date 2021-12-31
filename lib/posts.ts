@@ -19,7 +19,7 @@ export const getSortedPosts = () => {
 
     const options = { month: "long", day: "numeric", year: "numeric" };
     const formattedDate = new Date(data.date).toLocaleDateString(
-      "en-IN",
+      "en-US",
       options
     );
 
