@@ -36,6 +36,40 @@ In order to get Sublime Text to what I want to have, I had to install some plugi
 - LSP-json
 - LSP-eslint
 
+## Settings
+
+Here are the settings I'm currently using with Sublime Text to make everything a little bit cleaner and run a bit smoother. For example, when using Vintage Mode, auto-completion (meaning suggestions as you type) can be a little bit annoying. Hitting escape once will close the suggestions, and hitting it again will then go back to normal mode. I disable this and instead just hit ctrl+space when I actually want suggestions (which turns out to not be that often).
+
+```json
+{
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true,
+  "font_size": 18,
+  "fold_buttons": false,
+  "relative_line_numbers": true,
+  "scroll_past_end": true,
+  "color_scheme": "Mariana.sublime-color-scheme",
+  "ignored_packages": [],
+  "folder_exclude_patterns": [
+    ".svn",
+    ".git",
+    ".hg",
+    "CVS",
+    ".Trash",
+    ".Trash-*",
+    "node_modules",
+    ".*",
+    "dist",
+    "build",
+    ".next"
+  ],
+  "theme": "Default Dark.sublime-theme",
+  "vintage_start_in_command_mode": true,
+  "vintage_ctrl_keys": true,
+  "auto_complete": false
+}
+```
+
 ## Vintage mode
 
 Since I've been using Vim & Neovim for quite a long time, I've gotten very used to the modal way of editing code at this point, and feel quite lacking when I can't use the same method of editing. Therefor I've enabled Vintage Mode in Sublime Text 4. It's Sublimes' version of Vim bindings inside of Sublime Text. It's fine but it's not nearly as good as the real deal, especially not when using a non-English keyboard.
