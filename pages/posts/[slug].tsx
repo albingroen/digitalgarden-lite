@@ -108,7 +108,7 @@ export default function Post({ source, frontMatter }) {
 
           <div
             ref={articleContent}
-            className="mx-auto prose prose-blue prose-lg max-w-screen-lg dark:prose-light"
+            className="mx-auto prose prose-blue prose-xl max-w-screen-lg dark:prose-light"
           >
             <div>{content}</div>
           </div>

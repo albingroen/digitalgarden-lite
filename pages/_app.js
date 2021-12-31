@@ -10,7 +10,7 @@ const components = {
   code: CodeBlock,
   img: (props) => (
     <ImageZoom>
-      <img {...props} style={{ margin: 0 }} />
+      <img {...props} className={`rounded-md ${props.className ?? ""}`} />
     </ImageZoom>
   ),
 };
@@ -21,6 +21,9 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <script async src="https://cdn.splitbee.io/sb.js" />
       </Head>
+
+      <div className="hidden dark:block" />
+      <div className="block dark:hidden" />
 
       <MDXProvider components={components}>
         <Component {...pageProps} />
